@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">sis</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="enter_username">Username</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="login">Login</string>
+    <string name="my_profile">My profile</string>
+    <string name="remaining_courses">Remaining courses</string>
+    <string name="completed_courses">Completed courses</string>
+    <string name="registered_courses">Registered courses</string>
+    <string name="courses">Courses</string>
+    <string name="survey">Survey</string>
+    <string name="full_plan">Full plan</string>
+    <string name="notifications">Notifications</string>
+    <string name="dummy_text">Dummy Text</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="required">Required</string>
+    <string name="course_name">Course Name</string>
+    <string name="assignment_name">Assignment Name:</string>
+    <string name="assignment">Assignment</string>
+    <string name="course">Course</string>
+    <string name="start_date">Start date</string>
+    <string name="receive_date">Receive date</string>
+    <string name="note">Note</string>
+    <string name="student_assignments">My assignments</string>
+    <string name="my_assignments">My assignments</string>
+    <string name="description">Description</string>
+    <string name="hours">Hours</string>
+    <string name="points">Points</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="address">Address</string>
+    <string name="update">Update</string>
+    <string name="error">Error, something wrong happened!</string>
+    <string name="update_my_profile">Update my profile</string>
+</resources>
