@@ -61,7 +61,7 @@ public class ImageLoader {
 
 
     public static void loadImageFromURL(Context context, String url, final ImageView target, final int place_holder_image) {
-        Picasso.with(context).load(url).fit().transform(new CircleTransform()).error(place_holder_image).into(target);
+        Picasso.with(context).load(url).fit().transform(new CircleTransform()).fit().error(place_holder_image).into(target);
     }
 
     public static void loadImageFromURLWithNoTransformation(Context context, String url, final ImageView target, final int place_holder_image) {

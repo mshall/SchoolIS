@@ -1,5 +1,6 @@
 package com.shall.network.data.component;
 
+import com.shall.ForgotPasswordActivity;
 import com.shall.MainActivity;
 import com.shall.LoginActivity;
 import com.shall.network.data.module.AppModule;
@@ -29,6 +30,7 @@ public interface NetComponent {
 
     void inject(LoginActivity activity);
 
+    void inject(ForgotPasswordActivity activity);
     //----------- Inject Fragments -------------------
     void inject(NotificationFragment notificationFragment);
 

@@ -11,10 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.gaurav.cdsrecyclerview.CdsRecyclerView;
+import com.google.gson.Gson;
+import com.shall.LoginActivity;
 import com.shall.MainActivity;
 import com.shall.R;
 import com.shall.adapters.AssignmentsAdapter;
-import com.shall.LoginActivity;
 import com.shall.network.App;
 import com.shall.network.Controller;
 import com.shall.pojo.StudentAssignment;
@@ -42,7 +43,7 @@ public class StudentAssignmentsFragment extends Fragment {
     View view;
     @Inject
     Retrofit retrofit;
-    ArrayList<StudentAssignment.DataBean> dataBeans;
+    ArrayList<StudentAssignment.Assignment> assignments;
     AssignmentsAdapter adapter;
     MainActivity activity;
 
@@ -53,7 +54,7 @@ public class StudentAssignmentsFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        dataBeans = new ArrayList<>();
+        assignments = new ArrayList<>();
         activity = (MainActivity) getActivity();
 
     }
@@ -72,7 +73,7 @@ public class StudentAssignmentsFragment extends Fragment {
 
     private void initializeViews() {
         activity.toolbar.setTitle(getString(R.string.student_assignments));
-        adapter = new AssignmentsAdapter(getContext(), dataBeans);
+        adapter = new AssignmentsAdapter(getContext(), assignments);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
     }
@@ -86,9 +87,13 @@ public class StudentAssignmentsFragment extends Fragment {
 
             @Override
             public void onResponse(Call<StudentAssignment> call, Response<StudentAssignment> response) {
-                List<StudentAssignment.DataBean> data = response.body().getData();
-                for (StudentAssignment.DataBean bean : data) {
-                    dataBeans.add(bean);
+                Gson gson = new Gson ();
+                StudentAssignment studentAssignment = response.body();
+                Log.e("PRINTING ASSIGNMENTS: ",gson.toJson(studentAssignment));
+                List<StudentAssignment.Assignment> data = response.body().getData();
+                for (StudentAssignment.Assignment bean : data) {
+                    StudentAssignmentsFragment.this.assignments.add(bean);
+                    adapter = new AssignmentsAdapter(getContext(), StudentAssignmentsFragment.this.assignments);
                     adapter.notifyDataSetChanged();
                     recyclerView.setAdapter(adapter);
                 }
@@ -96,7 +101,8 @@ public class StudentAssignmentsFragment extends Fragment {
 
             @Override
             public void onFailure(Call<StudentAssignment> call, Throwable throwable) {
-
+                throwable.printStackTrace();
+                throwable.getMessage();
             }
         });
     }

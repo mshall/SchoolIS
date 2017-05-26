@@ -14,12 +14,13 @@ public class StudentAssignment implements Serializable {
 
     /**
      * response : success
-     * data : [{"assgin_id":"15","id":"15","name":"assign","start_date":"2016-03-01","recive_date":"2016-03-10","notes":"for test","dept_id":"1","course_id":"1","files":"hwamlcom_1290733192_413-1.jpg","direct":"all","tutor_id":"17","course_name":{"name":"course1"},"tutor_name":[{"name":"tutor1"}]},{"assgin_id":"16","id":"16","name":"assign2","start_date":"2016-03-29","recive_date":"2016-03-29","notes":"for test2","dept_id":"1","course_id":"1","files":"gJJTxP12141209.jpg","direct":"all","tutor_id":"17","course_name":{"name":"course1"},"tutor_name":[{"name":"tutor1"}]},{"assgin_id":"17","id":"17","name":"assign3","start_date":"2016-03-16","recive_date":"2016-03-16","notes":"for ","dept_id":"1","course_id":"2","files":"images (3).jpg","direct":"all","tutor_id":"17","course_name":{"name":"course2"},"tutor_name":[{"name":"tutor1"}]},{"assgin_id":"18","id":"18","name":"assign4","start_date":"2016-03-14","recive_date":"2016-03-29","notes":"test","dept_id":"1","course_id":"1","files":"images (5).jpg","direct":"all","tutor_id":"17","course_name":{"name":"course1"},"tutor_name":[{"name":"tutor1"}]}]
+     * data : [{"research_id":"1","id":"11","name":"Research 1","start_date":"2016-04-14","recive_date":"2016-04-29","dept_id":"1","course_id":"10","aims":"Research Paper","files":"Research Project.doc","direct":"all","tutor_id":"26","course_name":{"name":"Project 2"},"tutor_name":{"name":"DR.basil"}}]
      */
+
     @SerializedName("response")
     private String response;
     @SerializedName("data")
-    private List<DataBean> data;
+    private List<Assignment> data;
 
     public String getResponse() {
         return response;
@@ -29,32 +30,32 @@ public class StudentAssignment implements Serializable {
         this.response = response;
     }
 
-    public List<DataBean> getData() {
+    public List<Assignment> getData() {
         return data;
     }
 
-    public void setData(List<DataBean> data) {
+    public void setData(List<Assignment> data) {
         this.data = data;
     }
 
-    public static class DataBean {
+    public static class Assignment {
         /**
-         * assgin_id : 15
-         * id : 15
-         * name : assign
-         * start_date : 2016-03-01
-         * recive_date : 2016-03-10
-         * notes : for test
+         * research_id : 1
+         * id : 11
+         * name : Research 1
+         * start_date : 2016-04-14
+         * recive_date : 2016-04-29
          * dept_id : 1
-         * course_id : 1
-         * files : hwamlcom_1290733192_413-1.jpg
+         * course_id : 10
+         * aims : Research Paper
+         * files : Research Project.doc
          * direct : all
-         * tutor_id : 17
-         * course_name : {"name":"course1"}
-         * tutor_name : [{"name":"tutor1"}]
+         * tutor_id : 26
+         * course_name : {"name":"Project 2"}
+         * tutor_name : {"name":"DR.basil"}
          */
-        @SerializedName("assgin_id")
-        private String assgin_id;
+        @SerializedName("research_id")
+        private String research_id;
         @SerializedName("id")
         private String id;
         @SerializedName("name")
@@ -63,12 +64,12 @@ public class StudentAssignment implements Serializable {
         private String start_date;
         @SerializedName("recive_date")
         private String recive_date;
-        @SerializedName("notes")
-        private String notes;
         @SerializedName("dept_id")
         private String dept_id;
         @SerializedName("course_id")
         private String course_id;
+        @SerializedName("aims")
+        private String aims;
         @SerializedName("files")
         private String files;
         @SerializedName("direct")
@@ -78,14 +79,14 @@ public class StudentAssignment implements Serializable {
         @SerializedName("course_name")
         private CourseNameBean course_name;
         @SerializedName("tutor_name")
-        private List<TutorNameBean> tutor_name;
+        private TutorNameBean tutor_name;
 
-        public String getAssgin_id() {
-            return assgin_id;
+        public String getResearch_id() {
+            return research_id;
         }
 
-        public void setAssgin_id(String assgin_id) {
-            this.assgin_id = assgin_id;
+        public void setResearch_id(String research_id) {
+            this.research_id = research_id;
         }
 
         public String getId() {
@@ -120,14 +121,6 @@ public class StudentAssignment implements Serializable {
             this.recive_date = recive_date;
         }
 
-        public String getNotes() {
-            return notes;
-        }
-
-        public void setNotes(String notes) {
-            this.notes = notes;
-        }
-
         public String getDept_id() {
             return dept_id;
         }
@@ -142,6 +135,14 @@ public class StudentAssignment implements Serializable {
 
         public void setCourse_id(String course_id) {
             this.course_id = course_id;
+        }
+
+        public String getAims() {
+            return aims;
+        }
+
+        public void setAims(String aims) {
+            this.aims = aims;
         }
 
         public String getFiles() {
@@ -176,17 +177,17 @@ public class StudentAssignment implements Serializable {
             this.course_name = course_name;
         }
 
-        public List<TutorNameBean> getTutor_name() {
+        public TutorNameBean getTutor_name() {
             return tutor_name;
         }
 
-        public void setTutor_name(List<TutorNameBean> tutor_name) {
+        public void setTutor_name(TutorNameBean tutor_name) {
             this.tutor_name = tutor_name;
         }
 
         public static class CourseNameBean {
             /**
-             * name : course1
+             * name : Project 2
              */
             @SerializedName("name")
             private String name;
@@ -202,7 +203,7 @@ public class StudentAssignment implements Serializable {
 
         public static class TutorNameBean {
             /**
-             * name : tutor1
+             * name : DR.basil
              */
             @SerializedName("name")
             private String name;

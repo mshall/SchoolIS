@@ -73,7 +73,7 @@ public class RegisteredCoursesFragment extends Fragment {
 
     private void initializeViews() {
         activity.toolbar.setTitle(getString(R.string.registered_courses));
-        adapter = new RemainingCoursesAdapter(getContext(), courses);
+        adapter = new RemainingCoursesAdapter(getContext(), courses,true);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
     }

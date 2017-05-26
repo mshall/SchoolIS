@@ -23,10 +23,12 @@ import butterknife.ButterKnife;
 public class RemainingCoursesAdapter extends CdsRecyclerViewAdapter<Courses.DataBean.CourseBean, RemainingCoursesAdapter.ViewHolder> {
 
     private Context mContext;
+    boolean isDesc;
 
-    public RemainingCoursesAdapter(Context context, List<Courses.DataBean.CourseBean> list) {
+    public RemainingCoursesAdapter(Context context, List<Courses.DataBean.CourseBean> list,boolean isDesc) {
         super(context, list);
         mContext = context;
+        this.isDesc = isDesc;
     }
 
     @Override
@@ -41,15 +43,22 @@ public class RemainingCoursesAdapter extends CdsRecyclerViewAdapter<Courses.Data
         Courses.DataBean.CourseBean course = getList().get(position);
         ((ViewHolder) holder).tvCourseName.setText(course.getName());
         ((ViewHolder) holder).tvCourseDesc.setText(course.getDescription());
+        if(isDesc){
+            ((ViewHolder) holder).textview2.setVisibility(View.VISIBLE);
+        }else{
+            ((ViewHolder) holder).textview2.setVisibility(View.GONE);
+        }
+
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.tvCourseName)
         TextView tvCourseName;
-
         @BindView(R.id.tvCourseDesc)
         TextView tvCourseDesc;
+        @BindView(R.id.textview2)
+        TextView textview2;
 
         public ViewHolder(View itemView) {
             super(itemView);

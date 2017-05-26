@@ -20,7 +20,7 @@ public class App extends Application {
         super.onCreate();
         mNetComponent = DaggerNetComponent.builder()
                 .appModule(new AppModule(this))
-                .netModule(new NetModule("http://experttk.com/student_app_query/"))
+                .netModule(new NetModule("http://i4i6.com/student_app_query/"))
                 .build();
     }
 

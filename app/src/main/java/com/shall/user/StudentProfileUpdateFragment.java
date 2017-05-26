@@ -10,8 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.shall.LoginActivity;
 import com.shall.MainActivity;
 import com.shall.R;
 import com.shall.network.App;
@@ -20,6 +22,7 @@ import com.shall.pojo.Profile;
 import com.shall.pojo.Response;
 import com.shall.util.Constants;
 import com.shall.util.fragment.FragmentUtils;
+import com.shall.util.imageloader.ImageLoader;
 
 import javax.inject.Inject;
 
@@ -37,6 +40,8 @@ public class StudentProfileUpdateFragment extends Fragment {
     public static final String TAG = StudentProfileUpdateFragment.class.getName();
     @Inject
     Retrofit retrofit;
+    @BindView(R.id.ivUserImage)
+    ImageView ivUserImage;
     @BindView(R.id.etEmail)
     EditText etEmail;
     @BindView(R.id.etName)
@@ -97,6 +102,7 @@ public class StudentProfileUpdateFragment extends Fragment {
         etEmail.setText(profile.getUser_email());
         etPhone.setText(profile.getPhone());
         etAddress.setText(profile.getAddress());
+        ImageLoader.loadImageWithFit(activity, profile.getPicture(), ivUserImage, R.drawable.user);
     }
 
     private void updateUserProfile() {
@@ -105,7 +111,7 @@ public class StudentProfileUpdateFragment extends Fragment {
         String phone = etPhone.getText().toString();
         String address = etAddress.getText().toString();
         String password = etPassword.getText().toString();
-        Call<Response> result = retrofit.create(Controller.class).updateStudentProfile(name, phone, email, password, address);
+        Call<Response> result = retrofit.create(Controller.class).updateStudentProfile(LoginActivity.username,name, phone, email, password, address);
 
         Log.e("Profile update URL:", result.request().url().toString());
 

@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.shall.network.App;
 import com.shall.network.Controller;
@@ -35,6 +37,8 @@ public class LoginActivity extends AppCompatActivity {
     EditText etPassword;
     @BindView(R.id.bLogin)
     Button bLogin;
+    @BindView(R.id.tvForgotPassword)
+    TextView tvForgotPassword;
     ArrayList<EditText> formFields;
 
     public static String username = "";
@@ -54,6 +58,12 @@ public class LoginActivity extends AppCompatActivity {
                 activateLogin();
             }
         });
+        tvForgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class));
+            }
+        });
     }
 
     private void activateLogin() {
@@ -70,6 +80,8 @@ public class LoginActivity extends AppCompatActivity {
                         SharedPreferencesUtils.saveStringToSharedPreferences(LoginActivity.this, Constants.USERNAME, etUsername.getText().toString());
                         SharedPreferencesUtils.saveStringToSharedPreferences(LoginActivity.this, Constants.PASSWORD, etPassword.getText().toString());
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    } else {
+                        Toast.makeText(LoginActivity.this, getString(R.string.invalid_username_or_password), Toast.LENGTH_LONG).show();
                     }
                 }
 

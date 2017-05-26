@@ -20,11 +20,11 @@ import butterknife.ButterKnife;
  * Created by Mohamed S. El-Shall on 4/8/2017.
  */
 
-public class AssignmentsAdapter extends CdsRecyclerViewAdapter<StudentAssignment.DataBean, AssignmentsAdapter.ViewHolder> {
+public class AssignmentsAdapter extends CdsRecyclerViewAdapter<StudentAssignment.Assignment, AssignmentsAdapter.ViewHolder> {
 
     private Context mContext;
 
-    public AssignmentsAdapter(Context context, List<StudentAssignment.DataBean> list) {
+    public AssignmentsAdapter(Context context, List<StudentAssignment.Assignment> list) {
         super(context, list);
         mContext = context;
     }
@@ -38,12 +38,12 @@ public class AssignmentsAdapter extends CdsRecyclerViewAdapter<StudentAssignment
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         holder = (ViewHolder) holder;
-        StudentAssignment.DataBean data = getList().get(position);
+        StudentAssignment.Assignment data = getList().get(position);
         ((ViewHolder) holder).tvCourseName.setText(data.getCourse_name().getName());
         ((ViewHolder) holder).tvAssignmentName.setText(data.getName());
         ((ViewHolder) holder).tvStartDate.setText(data.getStart_date());
         ((ViewHolder) holder).tvReceiveDate.setText(data.getRecive_date());
-        ((ViewHolder) holder).tvNote.setText(data.getNotes());
+//        ((ViewHolder) holder).tvNote.setText(data.getNotes());
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.shall.MainActivity;
@@ -19,6 +20,7 @@ import com.shall.network.Controller;
 import com.shall.pojo.Profile;
 import com.shall.util.Constants;
 import com.shall.util.fragment.FragmentUtils;
+import com.shall.util.imageloader.ImageLoader;
 
 import java.util.ArrayList;
 
@@ -38,7 +40,8 @@ public class StudentProfileFragment extends Fragment {
     public static final String TAG = StudentProfileFragment.class.getName();
     @Inject
     Retrofit retrofit;
-
+    @BindView(R.id.ivUserImage)
+    ImageView ivUserImage;
     @BindView(R.id.tvEmail)
     TextView tvEmail;
     @BindView(R.id.tvName)
@@ -98,11 +101,13 @@ public class StudentProfileFragment extends Fragment {
                 profilePojo.setUser_email(response.body().get(0).getUser_email());
                 profilePojo.setPhone(response.body().get(0).getPhone());
                 profilePojo.setAddress(response.body().get(0).getAddress());
+                profilePojo.setPicture(response.body().get(0).getPicture());
                 //---------------
                 tvName.setText(response.body().get(0).getName());
                 tvEmail.setText(response.body().get(0).getUser_email());
                 tvPhone.setText(response.body().get(0).getPhone());
                 tvAddress.setText(response.body().get(0).getAddress());
+                ImageLoader.loadImageWithFit(activity, response.body().get(0).getPicture(), ivUserImage, R.drawable.user);
             }
 
             @Override

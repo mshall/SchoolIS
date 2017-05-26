@@ -41,6 +41,7 @@ public class CompletedCoursesAdapter extends CdsRecyclerViewAdapter<Courses.Data
         Courses.DataBean.CourseBean course = getList().get(position);
         ((ViewHolder) holder).tvCourseName.setText(course.getName());
         ((ViewHolder) holder).tvCourseDesc.setText(course.getDescription());
+        ((RemainingCoursesAdapter.ViewHolder) holder).textview2.setVisibility(View.VISIBLE);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -50,7 +51,8 @@ public class CompletedCoursesAdapter extends CdsRecyclerViewAdapter<Courses.Data
 
         @BindView(R.id.tvCourseDesc)
         TextView tvCourseDesc;
-
+        @BindView(R.id.textview2)
+        TextView textview2;
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);

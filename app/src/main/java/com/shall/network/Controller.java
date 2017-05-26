@@ -1,6 +1,7 @@
 package com.shall.network;
 
 import com.shall.pojo.Courses;
+import com.shall.pojo.ForgotPassword;
 import com.shall.pojo.FullPlan;
 import com.shall.pojo.Notifications;
 import com.shall.pojo.OpenedCourses;
@@ -64,6 +65,10 @@ public interface Controller {
 
     //------ update student profile
     @GET("update_profile.php")
-    Call<Response> updateStudentProfile(@Query("name") String name, @Query("phone") String phone, @Query("email") String email, @Query("pass") String password, @Query("address") String address);
+    Call<Response> updateStudentProfile(@Query("user_id") String userId, @Query("name") String name, @Query("phone") String phone, @Query("email") String email, @Query("pass") String password, @Query("address") String address);
 
+
+    //------ Forgot password
+    @GET("forgit.php")
+    Call<ForgotPassword> forgotPassword(@Query("user_id") String userId);
 }

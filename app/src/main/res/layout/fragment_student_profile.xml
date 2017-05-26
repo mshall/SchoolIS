@@ -5,18 +5,30 @@
     android:layout_height="match_parent"
     tools:context="com.shall.user.StudentProfileFragment">
 
+    <ImageView
+        android:id="@+id/ivUserImage"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/user" />
+
     <android.support.v7.widget.CardView
+        android:id="@+id/cvProfile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/ivUserImage"
         android:layout_centerVertical="true"
-        android:layout_margin="50dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
         app:cardElevation="3dp">
 
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TableRow android:layout_marginTop="10dp">
+            <TableRow android:layout_marginTop="20dp">
 
                 <RelativeLayout android:layout_margin="10dp">
 
@@ -31,8 +43,10 @@
                         android:id="@+id/tvName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginStart="10dp"
                         android:layout_toEndOf="@+id/textview1"
+                        android:layout_toRightOf="@+id/textview1"
                         android:text="@string/dummy_text" />
                 </RelativeLayout>
             </TableRow>
@@ -52,8 +66,10 @@
                         android:id="@+id/tvEmail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginStart="10dp"
                         android:layout_toEndOf="@+id/textview2"
+                        android:layout_toRightOf="@+id/textview2"
                         android:text="@string/dummy_text" />
                 </RelativeLayout>
             </TableRow>
@@ -73,8 +89,10 @@
                         android:id="@+id/tvPhone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginStart="10dp"
                         android:layout_toEndOf="@+id/textview3"
+                        android:layout_toRightOf="@+id/textview3"
                         android:text="@string/dummy_text" />
                 </RelativeLayout>
             </TableRow>
@@ -94,14 +112,17 @@
                         android:id="@+id/tvAddress"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginStart="10dp"
                         android:layout_toEndOf="@+id/textview4"
+                        android:layout_toRightOf="@+id/textview4"
                         android:text="@string/dummy_text" />
                 </RelativeLayout>
             </TableRow>
 
             <TableRow
-                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="20dp"
                 android:gravity="center">
 
                 <RelativeLayout>

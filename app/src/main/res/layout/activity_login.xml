@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray_backgrouns"
+    android:background="@drawable/back"
     tools:context="com.shall.LoginActivity">
 
     <android.support.v7.widget.CardView
         android:id="@+id/cv"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
         app:cardCornerRadius="6dp"
         app:cardElevation="7dp"
         app:cardUseCompatPadding="true">
@@ -27,6 +27,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
                 android:src="@mipmap/ic_launcher" />
 
 
@@ -35,7 +36,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/ivLogo"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
                 android:backgroundTint="@color/colorPrimary"
+                android:drawableLeft="@drawable/ic_supervisor_account_blue_24dp"
                 android:drawableStart="@drawable/ic_supervisor_account_blue_24dp"
                 android:hint="@string/username" />
 
@@ -44,8 +49,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/etUsername"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:backgroundTint="@color/colorPrimary"
+                android:drawableLeft="@drawable/ic_lock_outline_blue_24dp"
                 android:drawableStart="@drawable/ic_lock_outline_blue_24dp"
                 android:hint="@string/password"
                 android:inputType="textPassword" />
@@ -56,9 +64,22 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/etPassword"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="15dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="25dp"
                 android:background="@drawable/rectangle_rounded_corner_transparent_blue"
                 android:text="@string/login" />
+
+            <TextView
+                android:id="@+id/tvForgotPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bLogin"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="Forgot password?"
+                android:textStyle="bold" />
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 
