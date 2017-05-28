@@ -88,12 +88,14 @@ public class NotificationFragment extends Fragment {
             @Override
             public void onResponse(Call<Notifications> call, Response<Notifications> response) {
                 List<Datum> dataBeans = response.body().getData();
-                for (Datum datum: dataBeans) {
-                    // Adding description to the descriptions arraylist
-                    descriptions.add(datum.getNotification().getDescription());
-                    //--------------------------------------------------------------------
-                    adapter.notifyDataSetChanged();
-                    recyclerView.setAdapter(adapter);
+                if (dataBeans != null && !dataBeans.isEmpty()) {
+                    for (Datum datum : dataBeans) {
+                        // Adding description to the descriptions arraylist
+                        descriptions.add(datum.getNotification().getDescription());
+                        //--------------------------------------------------------------------
+                        adapter.notifyDataSetChanged();
+                        recyclerView.setAdapter(adapter);
+                    }
                 }
             }
 
