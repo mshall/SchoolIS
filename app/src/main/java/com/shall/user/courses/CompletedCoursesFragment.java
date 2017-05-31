@@ -84,13 +84,15 @@ public class CompletedCoursesFragment extends Fragment {
             @Override
             public void onResponse(Call<Courses> call, Response<Courses> response) {
                 List<Courses.DataBean> dataBeans = response.body().getData();
-                for (Courses.DataBean dataBean : dataBeans) {
-                    // Adding description to the descriptions arraylist
+                if (dataBeans != null && !dataBeans.isEmpty()) {
+                    for (Courses.DataBean dataBean : dataBeans) {
+                        // Adding description to the descriptions arraylist
 
-                    courses.add(dataBean.getCourse());
-                    //--------------------------------------------------------------------
-                    adapter.notifyDataSetChanged();
-                    recyclerView.setAdapter(adapter);
+                        courses.add(dataBean.getCourse());
+                        //--------------------------------------------------------------------
+                        adapter.notifyDataSetChanged();
+                        recyclerView.setAdapter(adapter);
+                    }
                 }
             }
 

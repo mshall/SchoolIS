@@ -87,15 +87,17 @@ public class StudentAssignmentsFragment extends Fragment {
 
             @Override
             public void onResponse(Call<StudentAssignment> call, Response<StudentAssignment> response) {
-                Gson gson = new Gson ();
+                Gson gson = new Gson();
                 StudentAssignment studentAssignment = response.body();
-                Log.e("PRINTING ASSIGNMENTS: ",gson.toJson(studentAssignment));
+                Log.e("PRINTING ASSIGNMENTS: ", gson.toJson(studentAssignment));
                 List<StudentAssignment.Assignment> data = response.body().getData();
-                for (StudentAssignment.Assignment bean : data) {
-                    StudentAssignmentsFragment.this.assignments.add(bean);
-                    adapter = new AssignmentsAdapter(getContext(), StudentAssignmentsFragment.this.assignments);
-                    adapter.notifyDataSetChanged();
-                    recyclerView.setAdapter(adapter);
+                if (data != null && !data.isEmpty()) {
+                    for (StudentAssignment.Assignment bean : data) {
+                        StudentAssignmentsFragment.this.assignments.add(bean);
+                        adapter = new AssignmentsAdapter(getContext(), StudentAssignmentsFragment.this.assignments);
+                        adapter.notifyDataSetChanged();
+                        recyclerView.setAdapter(adapter);
+                    }
                 }
             }
 

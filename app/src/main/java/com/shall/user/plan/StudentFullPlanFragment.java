@@ -83,13 +83,15 @@ public class StudentFullPlanFragment extends Fragment {
             @Override
             public void onResponse(Call<FullPlan> call, Response<FullPlan> response) {
                 List<FullPlan.DataBean> dataBeans = response.body().getData();
-                for (FullPlan.DataBean dataBean : dataBeans) {
-                    // Adding description to the descriptions arraylist
+                if (dataBeans != null && !dataBeans.isEmpty()) {
+                    for (FullPlan.DataBean dataBean : dataBeans) {
+                        // Adding description to the descriptions arraylist
 
-                    courses.add(dataBean);
-                    //--------------------------------------------------------------------
-                    adapter.notifyDataSetChanged();
-                    recyclerView.setAdapter(adapter);
+                        courses.add(dataBean);
+                        //--------------------------------------------------------------------
+                        adapter.notifyDataSetChanged();
+                        recyclerView.setAdapter(adapter);
+                    }
                 }
             }
 
